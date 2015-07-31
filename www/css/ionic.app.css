@@ -7700,9 +7700,32 @@ body {
   font-size: 24px; }
 
 .toggle-inbox {
-  margin: -5px 5px; }
+  margin: 2px 5px; }
+  .toggle-inbox input:checked + .track {
+    background: rgba(255, 255, 255, 0.55); }
+    .toggle-inbox input:checked + .track .handle {
+      background: white; }
+      .toggle-inbox input:checked + .track .handle .thumbtack {
+        transform: rotate(-45deg); }
+        .toggle-inbox input:checked + .track .handle .thumbtack path {
+          fill: #4285F4; }
   .toggle-inbox .track {
     background: #1A3562;
     border: 0;
-    height: 20px;
+    height: 16px;
     width: 40px; }
+    .toggle-inbox .track .handle {
+      height: 24px;
+      width: 24px;
+      background-color: #5E97F6;
+      top: 1px;
+      left: 0px; }
+    .toggle-inbox .track .thumbtack {
+      position: absolute;
+      top: 6px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 50%;
+      margin: 0 auto;
+      transition: transform(all .2s ease-in-out); }

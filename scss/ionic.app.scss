@@ -39,12 +39,51 @@ body {
 }
 
 .toggle-inbox {
-	margin: -5px 5px;
+	margin: 2px 5px;
+
+	input:checked {
+		& + .track {
+			background: rgba(255,255,255, .55);
+
+			.handle {
+				background: white;
+
+				.thumbtack {
+					transform: rotate(-45deg);
+					
+					path {
+						fill: $inbox-blue;
+					}
+				}
+			}
+		}
+	}
+
 
 	.track {
 		background: #1A3562;
 		border: 0;
-		height: 20px;
+		height: 16px;
 		width: 40px;
+
+		.handle {
+			height: 24px;
+			width: 24px;
+		    background-color: #5E97F6;
+		    top: 1px;
+		    left: 0px;
+		}
+
+		.thumbtack {
+			position: absolute;
+			top: 6px;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			width: 50%;
+			margin: 0 auto;
+			transition: transform(all .2s ease-in-out);
+
+		}
 	}
 }
