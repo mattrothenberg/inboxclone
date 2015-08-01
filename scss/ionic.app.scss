@@ -34,7 +34,7 @@ body {
 	@media(min-width: 768px) {
 	   background: #2c3e50;
 	   height: 100vh;
-	   cursor: url('http://ionicframework.com/img/finger.png'), auto;
+	   // cursor: url('http://ionicframework.com/img/finger.png'), auto;
 
 	   .desktop-container {
 	      position: relative;
@@ -91,16 +91,16 @@ body {
 	width: 300px;
 	opacity: 0;
 	box-shadow: 3px 0 20px 0px rgba(0, 0, 0, 0.12);
-	transform: translateX(-275px);
+	@include transform(translateX(-275px));
 	transition: all .2s ease-in-out;
 
 	&.menu-open {
-		transform: translateX(0px);
+		@include transform(translateX(0px));
 		opacity: 1;
 	}
 
 	&.menu-closed {
-		transform: translateX(-275px);
+		@include transform (translateX(-275px));
 	}
 }
 
@@ -481,7 +481,7 @@ body {
 				background: white;
 
 				.thumbtack {
-					transform: rotate(-45deg);
+					@include transform(rotate(-45deg));
 
 					path {
 						fill: $inbox-blue;
