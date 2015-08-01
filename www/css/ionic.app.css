@@ -7695,6 +7695,17 @@ a.button {
 
 body {
   font-family: "Roboto"; }
+  @media (min-width: 768px) {
+    body {
+      background: #2c3e50;
+      height: 100vh;
+      cursor: url('http://ionicframework.com/img/finger.png'), auto; }
+      body .desktop-container {
+        position: relative;
+        width: 370px;
+        height: 80vh;
+        margin: 10vh auto;
+        box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.15); } }
 
 .wide-as-needed {
   overflow: auto;

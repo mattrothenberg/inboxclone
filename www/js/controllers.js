@@ -15,15 +15,6 @@ angular.module('starter.controllers', [])
   $scope.closeMenu = function() {
     $scope.isMenuOpen = false;
   }
-
-  // $scope.toggleComposeOverlay = function() {
-  //   console.log('rawr');
-  //   if ( $scope.fabActive === true) {
-  //     $scope.fabActive = false;
-  //   } else {
-  //     $scope.fabActive = true;
-  //   }
-  // }
 })
 
 .controller('InboxCtrl', function($scope, $timeout) {
@@ -63,11 +54,4 @@ angular.module('starter.controllers', [])
       $scope.emails.splice(arrItemIndex, 1);
     }
   }
-
-  console.log($scope.emails);
-
-
-})
-
-.controller('PlaylistCtrl', function($scope, $stateParams) {
 });
