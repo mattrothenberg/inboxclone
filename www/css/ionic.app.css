@@ -7707,6 +7707,19 @@ body {
         margin: 10vh auto;
         box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.15); } }
 
+.logo {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  display: none;
+  opacity: .15; }
+  @media (min-width: 768px) {
+    .logo {
+      display: block; } }
+  .logo img {
+    width: 150px;
+    height: 150px; }
+
 .wide-as-needed {
   overflow: auto;
   overflow-x: scroll;
@@ -8097,11 +8110,11 @@ body {
     z-index: 99999999; }
     .inbox .item-email .attachment-list .attachment {
       display: inline-block;
-      padding: 12px 50px 20px 15px;
+      padding: 12px 45px 20px 15px;
       background: #ECECEC;
       font-size: .85em;
       position: relative;
-      margin-right: 10px; }
+      margin-right: 8px; }
       .inbox .item-email .attachment-list .attachment:first-of-type {
         margin-left: 72px; }
       .inbox .item-email .attachment-list .attachment .triangle-blue {

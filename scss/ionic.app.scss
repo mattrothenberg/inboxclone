@@ -42,8 +42,26 @@ body {
 	      height: 80vh;
 	      margin: 10vh auto;
 	      box-shadow: 0 0 0 4px rgba(0,0,0, .15);
+
 	   }
    }
+}
+
+.logo {
+	position: fixed;
+	right: 25px;
+	bottom: 25px;
+	display: none;
+	opacity: .15;
+
+	@media(min-width: 768px) {
+		display: block;
+	}
+
+	img {
+		width: 150px;
+		height: 150px;
+	}
 }
 
 .wide-as-needed {
@@ -579,11 +597,11 @@ body {
 
 			.attachment {
 				display: inline-block;
-				padding: 12px 50px 20px 15px;
+				padding: 12px 45px 20px 15px;
 				background: $background-gray;
 				font-size: .85em;
 				position: relative;
-				margin-right: 10px;
+				margin-right: 8px;
 
 				&:first-of-type {
 					margin-left: 72px;
