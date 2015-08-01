@@ -7696,8 +7696,106 @@ a.button {
 body {
   font-family: "Roboto"; }
 
+.menu {
+  z-index: 9999;
+  width: 350px;
+  opacity: 0;
+  box-shadow: 3px 0 20px 0px rgba(0, 0, 0, 0.12);
+  transform: translateX(-275px);
+  transition: all .2s ease-in-out; }
+  .menu.menu-open {
+    transform: translateX(0px);
+    opacity: 1; }
+  .menu.menu-closed {
+    transform: translateX(-275px); }
+
+.overlay {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.15);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  display: none;
+  opacity: 0;
+  transition: all .2s ease-in-out; }
+  .overlay.show {
+    display: block;
+    opacity: 1; }
+
 .bar .button.button-small:before {
   font-size: 24px; }
+
+.avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: block; }
+
+.about-me {
+  margin-top: 15px;
+  display: block;
+  clear: left;
+  color: white;
+  position: relative; }
+  .about-me .name {
+    font-size: 1em;
+    color: white;
+    margin: 0; }
+  .about-me .arrow-down {
+    position: absolute;
+    right: 0;
+    top: 15px;
+    right: 15px; }
+
+.side-menu-content {
+  top: 155px; }
+
+.inbox-list hr {
+  opacity: .25; }
+.inbox-list .label {
+  padding: 5px 15px;
+  opacity: .45;
+  font-weight: 500; }
+.inbox-list .inbox-item {
+  border-top: 0;
+  border-bottom: 0;
+  padding-left: 75px;
+  font-weight: 500; }
+  .inbox-list .inbox-item i {
+    font-size: 24px;
+    color: #666666; }
+  .inbox-list .inbox-item.snoozed i {
+    color: #ECA403; }
+  .inbox-list .inbox-item.done i {
+    color: #0F9D58; }
+  .inbox-list .inbox-item.inbox {
+    color: #4285F4; }
+    .inbox-list .inbox-item.inbox i {
+      color: #4285F4; }
+  .inbox-list .inbox-item.active {
+    background: #F0F0F0; }
+
+.bar-personalized {
+  height: 150px;
+  padding: 10px 10px;
+  position: relative;
+  display: block;
+  background: #000; }
+  .bar-personalized:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: .45;
+    background: #000 url('https://pbs.twimg.com/profile_banners/234441228/1418180666/1500x500') no-repeat center center;
+    background-size: cover !important; }
 
 .toggle-inbox {
   margin: 2px 5px; }
@@ -7729,3 +7827,20 @@ body {
       width: 50%;
       margin: 0 auto;
       transition: transform(all .2s ease-in-out); }
+
+.inbox {
+  background: #ECECEC; }
+  .inbox .item-divider {
+    color: #757575;
+    font-size: 1em; }
+    .inbox .item-divider i {
+      float: right; }
+  .inbox .email-group {
+    border-top: 1px solid #E4E4E4;
+    border-bottom: 0;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.05), 0 3px 1px -2px rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0.08); }
+  .inbox .item-email .subject {
+    font-size: .95em;
+    font-family: "Roboto"; }
+  .inbox .item-email .participants {
+    color: #212121; }

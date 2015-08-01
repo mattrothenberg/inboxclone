@@ -1,11 +1,12 @@
 <ion-side-menus enable-menu-with-back-views="false">
+  <div class="overlay" ng-class="isMenuOpen ? 'show' : ''" ng-click="closeMenu()"></div>
   <ion-side-menu-content>
     <ion-nav-bar class="bar-positive">
       <ion-nav-back-button>
       </ion-nav-back-button>
 
       <ion-nav-buttons side="left">
-        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        <button class="button button-icon button-clear ion-navicon" ng-click="openMenu()">
         </button>
       </ion-nav-buttons>
       <ion-nav-buttons side="right">
@@ -24,23 +25,94 @@
     <ion-nav-view name="menuContent"></ion-nav-view>
   </ion-side-menu-content>
 
-  <ion-side-menu side="left">
-    <ion-header-bar class="bar-positive">
-      <h1 class="title">Left</h1>
+  <ion-side-menu side="left" ng-class="isMenuOpen ? 'menu-open' : 'menu-closed'">
+    <ion-header-bar class="bar-personalized">
+      <!-- <h1 class="title">Left</h1> -->
+
+        <img class="avatar" src="https://pbs.twimg.com/profile_images/486132305069477891/aUnjJ9LM.jpeg" alt="">
+
+      <div class="about-me">
+        <h2 class="name">Matt Rothenberg</h2>
+        <p class="email">mattrothenberg@gmail.com</p>
+        <i class="arrow-down ion-arrow-down-b"></i>
+      </div>
     </ion-header-bar>
-    <ion-content>
-      <ion-list>
-        <ion-item menu-close ng-click="login()">
-          Login
+    <ion-content class="side-menu-content">
+      <ion-list class="inbox-list">
+        <ion-item class="inbox-item item-icon-left inbox active"> 
+          <i class="icon ion-pin"></i>
+          Inbox
         </ion-item>
-        <ion-item menu-close href="#/app/search">
-          Search
+        <ion-item class="inbox-item item-icon-left snoozed"> 
+          <i class="icon ion-android-time"></i>
+          Snoozed
         </ion-item>
-        <ion-item menu-close href="#/app/browse">
-          Browse
+        <ion-item class="inbox-item item-icon-left done"> 
+          <i class="icon ion-checkmark"></i>
+          Done
         </ion-item>
-        <ion-item menu-close href="#/app/playlists">
-          Playlists
+        <hr>
+        <ion-item class="inbox-item item-icon-left"> 
+          <i class="icon ion-android-mail"></i>
+          Drafts
+        </ion-item>
+        <ion-item class="inbox-item item-icon-left"> 
+          <i class="icon ion-android-send"></i>
+          Sent
+        </ion-item>
+        <ion-item class="inbox-item item-icon-left"> 
+          <i class="icon ion-stop"></i>
+          Reminders
+        </ion-item>
+        <ion-item class="inbox-item item-icon-left"> 
+          <i class="icon ion-trash-b"></i>
+          Trash
+        </ion-item>
+        <ion-item class="inbox-item item-icon-left"> 
+          <i class="icon ion-stop"></i>
+          Spam
+        </ion-item>
+        <hr>
+        <p class="label">Unbundled</p>
+        <ion-item class="inbox-item item-icon-left"> 
+          <i class="icon ion-stop"></i>
+          Name of Label
+        </ion-item>
+        <ion-item class="inbox-item item-icon-left"> 
+          <i class="icon ion-stop"></i>
+          Name of Label
+        </ion-item>
+        <ion-item class="inbox-item item-icon-left"> 
+          <i class="icon ion-stop"></i>
+          Name of Label
+        </ion-item>
+        <ion-item class="inbox-item item-icon-left"> 
+          <i class="icon ion-stop"></i>
+          Name of Label
+        </ion-item>
+        <ion-item class="inbox-item item-icon-left"> 
+          <i class="icon ion-stop"></i>
+          Name of Label
+        </ion-item>
+        <ion-item class="inbox-item item-icon-left"> 
+          <i class="icon ion-stop"></i>
+          Name of Label
+        </ion-item>
+        <ion-item class="inbox-item item-icon-left"> 
+          <i class="icon ion-stop"></i>
+          Name of Label
+        </ion-item>
+        <ion-item class="inbox-item item-icon-left"> 
+          <i class="icon ion-stop"></i>
+          Name of Label
+        </ion-item>
+        <ion-item class="inbox-item item-icon-left"> 
+          <i class="icon ion-stop"></i>
+          Name of Label
+        </ion-item>
+        <ion-item class="inbox-item item-icon-left"> 
+          <i class="icon ion-stop"></i>
+          Name of Label
         </ion-item>
       </ion-list>
     </ion-content>

@@ -19,13 +19,50 @@ $dark:                            #444 !default;
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 $inbox-blue: #4285F4;
+$inbox-yellow: #ECA403;
+$inbox-green: #0F9D58;
 $positive: $inbox-blue !default;
+$background-gray: #ECECEC;
+$item-divider-gray: #757575;
 
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
 body {
 	font-family: "Roboto";
+}
+
+.menu {
+	z-index: 9999;
+	width: 350px;
+	opacity: 0;
+	box-shadow: 3px 0 20px 0px rgba(0, 0, 0, 0.12);
+	transform: translateX(-275px);
+	transition: all .2s ease-in-out;
+
+	&.menu-open {
+		transform: translateX(0px);
+		opacity: 1;
+	}
+
+	&.menu-closed {
+		transform: translateX(-275px);
+	}
+}
+
+.overlay {
+	position: fixed;
+	background: rgba(0,0,0, .15);
+	top: 0; left: 0; right: 0; bottom: 0;
+	z-index: 9999;
+	display: none;
+	opacity: 0;
+	transition: all .2s ease-in-out;
+
+	&.show {
+		display: block;
+		opacity: 1;
+	}
 }
 
 .bar {
@@ -35,6 +72,108 @@ body {
 				font-size: 24px;
 			}
 		}
+	}
+}
+
+.avatar {
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+	display: block;
+	// position: absolute;
+	// top: 10px;
+	// left: 10px;
+}
+
+.about-me {
+	margin-top: 15px;
+	display: block;
+	clear: left;
+	color: white;
+	position: relative;
+
+	.name {
+		font-size: 1em;
+		color: white;
+		margin: 0;
+	}
+
+	.arrow-down {
+		position: absolute;
+		right: 0;
+		top: 15px;
+		right: 15px;
+	}
+}
+
+.side-menu-content {
+	top: 155px;
+}
+
+.inbox-list {
+	hr {
+		opacity: .25;
+	}
+
+	.label {
+		padding: 5px 15px;
+		opacity: .45;
+		font-weight: 500;
+	}
+
+	.inbox-item {
+		border-top: 0;
+		border-bottom: 0;
+		padding-left: 75px;
+		font-weight: 500;
+
+		i {
+			font-size: 24px;
+			color: #666666;
+		}
+
+		&.snoozed {
+			i {
+				color: $inbox-yellow;
+			}
+		}
+
+		&.done {
+			i {
+				color: $inbox-green;
+			}
+		}
+
+		&.inbox {
+			i {
+				color: $inbox-blue;
+			}
+			color: $inbox-blue;
+		}
+
+		&.active {
+			background: #F0F0F0;
+		}
+	}
+}
+
+.bar-personalized {
+	height: 150px;
+	padding: 10px 10px;
+	position: relative;
+	display: block;
+	background: #000;
+
+	&:after {
+		content: '';
+		position: absolute;
+		left: 0; right: 0; bottom: 0; top: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+		opacity: .45;
+		background: #000 url('https://pbs.twimg.com/profile_banners/234441228/1418180666/1500x500') no-repeat center center;
+		background-size: cover !important;
 	}
 }
 
@@ -50,7 +189,7 @@ body {
 
 				.thumbtack {
 					transform: rotate(-45deg);
-					
+
 					path {
 						fill: $inbox-blue;
 					}
@@ -84,6 +223,38 @@ body {
 			margin: 0 auto;
 			transition: transform(all .2s ease-in-out);
 
+		}
+	}
+}
+
+.inbox {
+	background: $background-gray;
+
+	.item-divider {
+		color: $item-divider-gray;
+		font-size: 1em;
+
+		i {
+			float: right;
+		}
+	}
+
+	.email-group {
+		border-top: 1px solid #E4E4E4;
+		border-bottom: 0;
+		box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.05), 
+					0 3px 1px -2px rgba(0, 0, 0, 0.10), 
+					0 1px 5px 0 rgba(0, 0, 0, 0.08);
+	}
+
+	.item-email {
+		.subject {
+			font-size: .95em;
+			font-family: "Roboto";
+		}
+
+		.participants {
+			color: #212121;
 		}
 	}
 }
