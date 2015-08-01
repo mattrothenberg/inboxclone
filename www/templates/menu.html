@@ -1,18 +1,91 @@
 <ion-side-menus enable-menu-with-back-views="false">
-  <div class="fixed-action-btn" ng-click="toggleFab()" ng-class="fabActive ? 'active' : ''">
-      <a class="btn-floating btn-large red">
-        <i class="ion-plus"></i>
-      </a>
-      <ul>
-        <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></i></a></li>
-        <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
-        <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
-        <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
-      </ul>
-  </div>
   <script type="text/javascript">
-    $('.fixed-action-btn').unbind('mouseenter') 
+    // Cache queries 
+    var btn_group_large = $(".btn-group");
+    var btn_group_small = $(".btn-group-small");
+    var btn_small       = $(".small");
+    var compose_btn     = $(".btn-compose");
+    var overlay         = $('.compose-overlay');
+
+    // Reversing the order of the .small nodes so we can animate up and down on hover
+    var btn_small_reverse = $((btn_small).get().reverse());
+
+    $(document).ready(function(){
+        function initAnim() {
+          btn_small_reverse.each(function(i){
+            var button = $(this);
+            setTimeout(function() {
+                button.addClass('animated');
+            },50*i);
+          });
+        }
+
+        function reverseAnim() {
+          btn_small.each(function(i){
+            var button = $(this);
+            setTimeout(function() {
+                button.removeClass('animated');
+            },50*i);
+          });
+        }
+
+        overlay.on('click', function() {
+          if ( $(this).hasClass('show') ) {
+            $(this).removeClass('show');
+            btn_group_large.removeClass('activated');
+            reverseAnim();
+          }
+        })
+
+        compose_btn.on('click', function() {
+          if ( overlay.hasClass('show') ) {
+            btn_group_large.removeClass('activated');
+            overlay.removeClass('show');
+            reverseAnim();
+          } else {
+            btn_group_large.addClass('activated');
+            overlay.addClass('show');
+            initAnim();
+          }
+        });
+                 
+    });
   </script>
+  <div class="btn-group cta" ng-class="fabActive ? 'activated' : '' ">
+      <div class="btn-group-small">
+          <div class="btn small contact-img obama">
+              <label class="btn-label">
+              <div class="btn-tooltip" data-tooltip="Barack Obama">Barack Obama</div>
+              <button></button>
+          </label>
+          </div>
+          <div class="btn small contact name mom">
+              <label class="btn-label">
+              <div class="btn-tooltip" data-tooltip="Mom">Mom</div>
+              <button>M</button>
+          </label>
+          </div>
+          <div class="btn small blue reminder">
+              <label class="btn-label">
+              <div class="btn-tooltip" data-tooltip="Reminder">Reminder</div>
+              <button></button>
+          </label>
+          </div>
+          
+      </div>
+      <div class="btn main compose" ng-click="toggleComposeOverlay()">
+          <label class="btn-label">
+              <div class="btn-tooltip" data-tooltip="Compose">Compose</div>
+              <button class="btn-compose">
+                     <img class="pen hidden" src="//ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/2x/bt_compose2_2x.png" jstcache="0">
+                     <img class="plus visible" src="//ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/2x/bt_speed_dial_2x.png" jstcache="0">
+              </button>
+          </label>
+      </div>
+  </div>
+
+  <div class="compose-overlay" ng-class="fabActive ? 'show' : ''"></div>
+  
   <div class="overlay" ng-class="isMenuOpen ? 'show' : ''" ng-click="closeMenu()"></div>
   <ion-side-menu-content drag-content="false">
     <ion-nav-bar class="bar-positive">
