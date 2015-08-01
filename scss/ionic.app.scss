@@ -32,9 +32,29 @@ body {
 	font-family: "Roboto";
 }
 
+.wide-as-needed {
+  overflow: auto;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+.fixed-action-btn {
+	bottom: 45px; 
+	right: 24px;
+	z-index: 9999;
+
+	&.active {
+		li a {
+			transform: scaleX(1) scaleY(1) translateY(0px); 
+			opacity: 1;
+		}
+	}
+}
+
 .menu {
 	z-index: 9999;
-	width: 350px;
+	width: 300px;
 	opacity: 0;
 	box-shadow: 3px 0 20px 0px rgba(0, 0, 0, 0.12);
 	transform: translateX(-275px);
@@ -108,6 +128,46 @@ body {
 
 .side-menu-content {
 	top: 155px;
+}
+
+.inbox-slider {
+	height:95px;
+
+	&.tall {
+		height: 198px;
+	}
+
+	.icon-box {
+		height: 100%;
+		width: 100%;
+		color: white;
+		display: table;
+		position: fixed;
+		right: 0;
+
+		i {
+			display: table-cell;
+			font-size: 24px;
+			vertical-align: middle;
+		}
+	}
+
+	.done-slide {
+		background: $inbox-green;
+
+		.icon-box {
+			padding-left: 50px;
+		}
+	}
+
+	.remind-slide {
+		background: $inbox-yellow;
+
+		.icon-box {
+			text-align: right;
+			padding-right: 50px;
+		}
+	}
 }
 
 .inbox-list {
@@ -253,8 +313,116 @@ body {
 			font-family: "Roboto";
 		}
 
+		&.with-attachments {
+			padding-left: 0;
+
+			&.activated {
+				background: white;
+			}
+
+			.faux-padded {
+				padding-left: 72px;
+			}
+		}
+
+		.no-avatar {
+			position: absolute;
+			top: 16px;
+			left: 16px;
+			max-width: 40px;
+			max-height: 40px;
+			width: 100%;
+			height: 100%;
+			border-radius: 50%;
+			font-weight: 500;
+			color: rgba(255,255,255, .55);
+			font-size: 26px;
+			display: block;
+			padding: 10px;
+			text-align: center;
+
+			&.girlfriend {
+				background: #BA68C8;
+			}
+
+			&.mom {
+				background: #D6E157;
+			}
+		}
+
 		.participants {
 			color: #212121;
 		}
+
+		.attachment-list {
+			margin: 10px 0;
+
+			.attachment {
+				display: inline-block;
+				padding: 12px 50px 20px 15px;
+				background: $background-gray;
+				font-size: .85em;
+				position: relative;
+				margin-right: 10px;
+
+				&:first-of-type {
+					margin-left: 72px;
+				}
+				
+				.triangle-blue {
+					width: 0;
+					height: 0;
+					position: absolute;
+					bottom: 0;
+					right: 0;
+					border-style: solid;
+					border-width: 15px 15px 0 0;
+					border-color: #007bff transparent transparent transparent;
+				}
+
+				.triangle-white {
+					width: 0;
+					height: 0;
+					position: absolute;
+					bottom: 0;
+					right: 0;
+					border-style: solid;
+					border-width: 0 0 15px 15px;
+					border-color: transparent transparent #ffffff transparent;
+				}
+
+				.attachment-name {
+					color: #222;
+					margin-bottom: 10px;
+				}
+
+				.filetype {
+					opacity: .6;
+					font-weight: 500;
+				}
+
+				i {
+					color: $inbox-blue;
+					margin-right: 15px;
+				}
+			}
+		}
 	}
+}
+
+.item-remove-animate.ng-leave {
+  -webkit-transition-duration: 200ms;
+  transition-duration: 200ms; }
+.item-remove-animate.ng-leave, .item-remove-animate.ng-leave:last-of-type {
+  -webkit-transition-duration: 200ms;
+  transition-duration: 200ms;
+  -webkit-transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
+  -webkit-transition-property: all;
+  transition-property: all; 
+}
+.item-remove-animate.ng-leave.ng-leave-active {
+  opacity: 0;
+  width: 100%;
+  height: 0;
 }

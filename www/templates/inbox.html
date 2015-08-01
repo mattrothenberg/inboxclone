@@ -1,18 +1,109 @@
 <ion-view class="inbox" view-title="Inbox">
   <ion-content>
-    <div class="list">
+    <ion-list can-swipe="true">
       <div class="item item-divider">
         Today
         <i class="ion-checkmark"></i>
       </div>
       <div class="email-group">
-      	<a class="item item-avatar item-email" href="#">
+        <ion-slide-box on-slide-changed="echoCurrentSlide($index, email.id)" class="item-remove-animate animated inbox-slider" show-pager="false" active-slide="1" ng-repeat="email in emails" ng-class="{'tall' : email.attachments.length > 0, 'delete' : delete }">
+          <ion-slide class="done-slide">
+            <div class="icon-box">
+              <i class="ion-checkmark"></i>
+            </div>
+          </ion-slide>
+          <ion-slide>
+            <ion-item class="item item-avatar item-email" ng-class="email.attachments.length > 1 ? 'with-attachments' : ''">
+              <img ng-if="email.avatar.url.length> 0" ng-src="{{ email.avatar.url }}" alt="">
+              <div ng-class="email.attachments.length > 0 ? 'faux-padded' : ''">
+                <div ng-if="email.avatar.url.length == 0">
+                  <div class="no-avatar" ng-class="email.subClass">
+                    {{ email.avatar.initial }}
+                  </div>
+                </div>
+                <h2 class="subject">{{email.subject}}</h2>
+                <p class="participants">{{email.participants}}</p>
+                <p>{{email.body}}</p>
+              </div>
+
+              <div ng-if="email.attachments.length> 0">
+                <ion-scroll direction="x" scrollbar-x="false" class="attachment-list wide-as-needed">
+                  <div class="attachment" ng-repeat="attachment in email.attachments">
+                    <div class="triangle-blue"></div>
+                    <div class="triangle-white"></div>
+                    <p class="attachment-name">{{ attachment.name}}</p>
+                    <i class="ion-android-document"></i>
+                    <span class="filetype">Doc</span>
+                  </div>
+                </ion-scroll>
+              </div>
+            </ion-item>
+          </ion-slide>
+          <ion-slide class="remind-slide">
+            <div class="icon-box">
+              <i class="icon ion-android-time"></i>
+            </div>
+          </ion-slide> 
+
+
+        </ion-slide-box>
+  
+
+      <!-- 	<a class="item item-avatar item-email" href="#">
   	      <img src="./img/ionic-logo.png">
   	      <h2 class="subject">Ionic Framework</h2>
   	      <p class="participants">Ionic Team, me</p>
   	      <p>Yeah, it's an awesome framework! If only I actually knew what I was doing</p>
   	    </a>
+        <a class="item item-avatar item-email" href="#">
+          <div class="no-avatar girlfriend">
+            G
+          </div>
+          <h2 class="subject">We need to talk...</h2>
+          <p class="participants">Girlfriend</p>
+          <p>Do you care more about Javascript than me?</p>
+        </a>
+        <a class="item item-avatar with-attachments item-email" href="#">
+          <div class="faux-padded">
+            <div class="no-avatar mom">
+              M
+            </div>
+            <h2 class="subject">Confidential documents</h2>
+            <p class="participants">Mom</p>
+            <p>Am I doing this email thing right?</p>
+          </div>
+          <ion-scroll scrollbar-x="false" class="attachment-list wide-as-needed" direction="x">
+            <div class="attachment">
+              <div class="triangle-blue"></div>
+              <div class="triangle-white"></div>
+              <p class="attachment-name">Private.docx</p>
+              <i class="ion-android-document"></i>
+              <span class="filetype">Doc</span>
+            </div>
+            <div class="attachment">
+              <div class="triangle-blue"></div>
+              <div class="triangle-white"></div>
+              <p class="attachment-name">Money.docx</p>
+              <i class="ion-android-document"></i>
+              <span class="filetype">Doc</span>
+            </div>
+            <div class="attachment">
+              <div class="triangle-blue"></div>
+              <div class="triangle-white"></div>
+              <p class="attachment-name">Security.docx</p>
+              <i class="ion-android-document"></i>
+              <span class="filetype">Doc</span>
+            </div>
+            <div class="attachment">
+              <div class="triangle-blue"></div>
+              <div class="triangle-white"></div>
+              <p class="attachment-name">Fake.docx</p>
+              <i class="ion-android-document"></i>
+              <span class="filetype">Doc</span>
+            </div>
+          </ion-scroll>
+        </a> -->
       </div>
-    </div>
+    </ion-list>
   </ion-content>
 </ion-view>

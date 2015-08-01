@@ -1,6 +1,20 @@
 <ion-side-menus enable-menu-with-back-views="false">
+  <div class="fixed-action-btn" ng-click="toggleFab()" ng-class="fabActive ? 'active' : ''">
+      <a class="btn-floating btn-large red">
+        <i class="ion-plus"></i>
+      </a>
+      <ul>
+        <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></i></a></li>
+        <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+        <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+        <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+      </ul>
+  </div>
+  <script type="text/javascript">
+    $('.fixed-action-btn').unbind('mouseenter') 
+  </script>
   <div class="overlay" ng-class="isMenuOpen ? 'show' : ''" ng-click="closeMenu()"></div>
-  <ion-side-menu-content>
+  <ion-side-menu-content drag-content="false">
     <ion-nav-bar class="bar-positive">
       <ion-nav-back-button>
       </ion-nav-back-button>
