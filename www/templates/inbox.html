@@ -1,12 +1,12 @@
 <ion-view class="inbox" view-title="Inbox">
   <ion-content>
-    <ion-list can-swipe="true">
+    <ion-list >
       <div class="item item-divider">
         Today
         <i class="ion-checkmark"></i>
       </div>
       <div class="email-group">
-        <ion-slide-box data-tap-disabled="true" on-slide-changed="echoCurrentSlide($index, email.id)" class="item-remove-animate animated inbox-slider" show-pager="false" active-slide="1" ng-repeat="email in emails" ng-class="{'tall' : email.attachments.length > 0, 'delete' : delete }">
+        <ion-slide-box on-slide-changed="echoCurrentSlide($index, email.id)" class="item-remove-animate animated inbox-slider" show-pager="false" active-slide="1" ng-repeat="email in emails" ng-class="{'tall' : email.attachments.length > 0, 'delete' : delete }">
           <ion-slide class="done-slide">
             <div class="icon-box">
               <i class="ion-checkmark"></i>

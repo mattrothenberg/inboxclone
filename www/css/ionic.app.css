@@ -7698,8 +7698,7 @@ body {
   @media (min-width: 768px) {
     body {
       background: #2c3e50;
-      height: 100vh;
-      cursor: url('http://ionicframework.com/img/finger.png'), auto; }
+      height: 100vh; }
       body .desktop-container {
         position: relative;
         width: 370px;
@@ -7741,12 +7740,15 @@ body {
   width: 300px;
   opacity: 0;
   box-shadow: 3px 0 20px 0px rgba(0, 0, 0, 0.12);
+  -webkit-transform: translateX(-275px);
   transform: translateX(-275px);
   transition: all .2s ease-in-out; }
   .menu.menu-open {
+    -webkit-transform: translateX(0px);
     transform: translateX(0px);
     opacity: 1; }
   .menu.menu-closed {
+    -webkit-transform: translateX(-275px);
     transform: translateX(-275px); }
 
 .overlay {
@@ -8037,6 +8039,7 @@ body {
     .toggle-inbox input:checked + .track .handle {
       background: white; }
       .toggle-inbox input:checked + .track .handle .thumbtack {
+        -webkit-transform: rotate(-45deg);
         transform: rotate(-45deg); }
         .toggle-inbox input:checked + .track .handle .thumbtack path {
           fill: #4285F4; }
