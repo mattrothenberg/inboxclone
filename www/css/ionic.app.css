@@ -1,20 +1,4 @@
 @charset "UTF-8";
-/*
-To customize the look and feel of Ionic, you can override the variables
-in ionic's _variables.scss file.
-
-For example, you might change some of the default colors:
-
-$light:                           #fff !default;
-$stable:                          #f8f8f8 !default;
-$positive:                        #387ef5 !default;
-$calm:                            #11c1f3 !default;
-$balanced:                        #33cd5f !default;
-$energized:                       #ffc900 !default;
-$assertive:                       #ef473a !default;
-$royal:                           #886aea !default;
-$dark:                            #444 !default;
-*/
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
@@ -7698,7 +7682,8 @@ body {
   @media (min-width: 768px) {
     body {
       background: #2c3e50;
-      height: 100vh; }
+      height: 100vh;
+      cursor: url('http://ionicframework.com/img/finger.png'), auto; }
       body .desktop-container {
         position: relative;
         width: 370px;
@@ -7724,16 +7709,6 @@ body {
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap; }
-
-.fab {
-  position: fixed;
-  bottom: 45px;
-  right: 24px;
-  z-index: 9999999; }
-  .fab.mdl-button--fab, .fab .mdl-button--fab.mdl-button--colored:hover {
-    background: #DB4437; }
-    .fab.mdl-button--fab i, .fab .mdl-button--fab.mdl-button--colored:hover i {
-      color: white; }
 
 .menu {
   z-index: 9999;
